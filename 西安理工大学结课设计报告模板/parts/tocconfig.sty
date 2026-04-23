@@ -1,0 +1,42 @@
+% tocconfig.sty — 结课设计报告目录格式配置
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tocconfig}[2026/04/23 Report TOC Style]
+
+\RequirePackage{tocloft}
+
+% 目录标题格式
+\renewcommand\contentsname{目\quad 录}
+\renewcommand\cfttoctitlefont{\hfill\heiti\bfseries\zihao{3}}
+\renewcommand\cftaftertoctitle{\hfill}
+
+% 目录标题间距
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{20pt}
+\setlength{\cftbeforechapskip}{0pt}
+\cftsetpnumwidth{1.5em}
+
+% 目录条目字体
+\renewcommand\cftchapfont{\songti\zihao{-4}}
+\renewcommand\cftsecfont{\songti\zihao{-4}}
+\renewcommand\cftsubsecfont{\songti\zihao{-4}}
+
+% 目录条目间距
+\setlength{\cftparskip}{1pt}
+
+% 目录缩进
+\cftsetindents{chapter}{0em}{1em}
+\cftsetindents{section}{2em}{1em}
+\cftsetindents{subsection}{4em}{1em}
+
+% 引导线（居中点）
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\makeatletter
+\renewcommand{\cftdot}{$\cdot$}
+\renewcommand{\cftdotsep}{0.5}
+\renewcommand{\cftpnumalign}{r}
+\renewcommand\cftchappagefont{}
+\renewcommand\cftchapaftersnum{~}
+\renewcommand\cftsecaftersnum{~}
+\makeatother
+
+\endinput

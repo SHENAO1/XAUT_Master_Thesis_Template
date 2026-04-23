@@ -1,0 +1,55 @@
+% !Mode:: "TeX:UTF-8"
+% parts/coverpage.tex — 结课设计报告封面
+
+\thispagestyle{empty}
+
+\begin{center}
+    \vspace{60pt}
+    % ---- 学校 Logo + 校名 ----
+    \includegraphics[width=8.53cm, height=1.53cm]{xaut01.png}
+
+    \vspace{30pt}
+
+    % ---- 报告类型大标题 ----
+    {\heiti\fontsize{42pt}{42pt}\bfseries{结课设计报告}}
+
+    \vspace{50pt}
+
+    % ---- 课程与题目信息 ----
+    {\zihao{-3}\songti
+        \renewcommand\arraystretch{1.5}
+        \begin{tabular}{c}
+            \songti\zihao{3}\bfseries{课程名称：\thickuline{\makebox[16em]{\the\CourseName}}} \\[6pt]
+            \songti\zihao{3}\bfseries{报告题目：\thickuline{\makebox[16em]{\the\ReportTitle}}} \\
+        \end{tabular}
+    }
+
+    \vspace{50pt}
+
+    % ---- 个人与课程信息表 ----
+    {\zihao{-3}\songti
+        \renewcommand\arraystretch{1.5}
+        \begin{tabular}{lccc}
+            \makebox[6em][s]{\textbf{学\quad 院：}}
+                & \multicolumn{3}{c}{\thickuline{\makebox[12em]{\textbf{\the\CSchool}}}} \\
+            \makebox[6em][s]{\textbf{专\quad 业：}}
+                & \multicolumn{3}{c}{\thickuline{\makebox[12em]{\textbf{\the\Major}}}} \\
+            \makebox[6em][s]{\textbf{班\quad 级：}}
+                & \multicolumn{3}{c}{\thickuline{\makebox[12em]{\textbf{\the\ClassName}}}} \\
+            \makebox[6em][s]{\textbf{学\quad 号：}}
+                & \multicolumn{3}{c}{\thickuline{\makebox[12em]{\textbf{\the\StudentID}}}} \\
+            \makebox[6em][s]{\textbf{姓\quad 名：}}
+                & \multicolumn{3}{c}{\thickuline{\makebox[12em]{\textbf{\the\StudentName}}}} \\
+            \makebox[6em][s]{\textbf{指导教师：}}
+                & \multicolumn{3}{c}{\thickuline{\makebox[12em]{\textbf{\the\Instructor\quad\the\InstructorTitle}}}} \\
+        \end{tabular}
+    }
+
+    \vspace{60pt}
+
+    % ---- 提交日期 ----
+    {\zihao{-3}\songti\bfseries{提交日期：\thickuline{\makebox[12em]{\the\ReportDate}}}}
+
+\end{center}
+
+\clearpage

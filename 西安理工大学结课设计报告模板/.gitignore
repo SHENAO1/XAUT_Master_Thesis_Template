@@ -1,0 +1,15 @@
+# LaTeX 编译临时文件
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.thm
+*.toc
+*.xdv
+*.synctex.gz
+*.synctex(busy)

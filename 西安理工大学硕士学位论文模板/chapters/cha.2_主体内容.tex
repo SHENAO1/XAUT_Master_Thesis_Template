@@ -1,0 +1,146 @@
+% !Mode:: "TeX:UTF-8"
+
+\chapter{主体内容}
+% 本章示范图、表、公式、算法、代码等常用格式的使用方法
+
+\section{本章引言}
+
+每章开头可用简短的引言段落说明本章主要研究内容，以及与前后章节之间的逻辑关系。
+
+\section{图的使用}
+
+\subsection{单幅图}
+
+图序及图名居中置于图的下方，采用五号楷体字。图、表、公式一律采用阿拉伯数字分章编号，例如图\ref{fig:example}所示。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{example-image} % 请替换为实际图片
+    \caption{示例图片标题}
+    \label{fig:example}
+\end{figure}
+
+\subsection{双语图标题}
+
+如需添加中英文双语图标题，可使用 \verb|\bilingualfigure| 命令，如图\ref{fig:bilingual}所示。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{example-image}
+    \bilingualfigure{双语标题示例图}{Example figure with bilingual caption}
+    \label{fig:bilingual}
+\end{figure}
+
+\subsection{子图排列}
+
+包含多个子图时，可使用 \texttt{subfigure} 环境，如图\ref{fig:subfig}所示。
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-a}
+        \caption{子图 (a)}
+    \end{subfigure}
+    \hspace{10pt}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-b}
+        \caption{子图 (b)}
+    \end{subfigure}
+    \caption{子图排列示例}
+    \label{fig:subfig}
+\end{figure}
+
+\section{表的使用}
+
+表格采用国际通用三线表，表序及表名置于表的上方，采用五号楷体字。如表\ref{tab:example}所示。
+
+\begin{table}[htbp]
+    \centering
+    \caption{示例三线表}
+    \label{tab:example}
+    \begin{tabular}{cccc}
+        \toprule
+        方法 & 准确率 (\%) & 召回率 (\%) & F1 分数 \\
+        \midrule
+        方法 A & 92.3 & 89.1 & 90.7 \\
+        方法 B & 90.5 & 91.2 & 90.8 \\
+        本文方法 & \textbf{94.6} & \textbf{93.8} & \textbf{94.2} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{公式的使用}
+
+公式编号用括号括起写在右边行末，格式为"章号-公式序号"，如式（\ref{eq:example}）所示。
+
+\begin{equation}
+    \mathcal{L} = -\frac{1}{N}\sum_{i=1}^{N} \left[ y_i \log \hat{y}_i + (1-y_i)\log(1-\hat{y}_i) \right]
+    \label{eq:example}
+\end{equation}
+
+行内公式示例：设 $x \in \mathbb{R}^d$ 为输入特征，$W \in \mathbb{R}^{d \times k}$ 为权重矩阵，则输出为 $y = Wx + b$。
+
+多行对齐公式示例：
+
+\begin{align}
+    f(x) &= ax^2 + bx + c \label{eq:poly} \\
+    f'(x) &= 2ax + b \label{eq:derive}
+\end{align}
+
+\section{定理与证明}
+
+\begin{definition}[定义名称]
+    这里给出定义的内容。
+\end{definition}
+
+\begin{theorem}[定理名称]
+    这里给出定理的内容和命题。
+\end{theorem}
+
+\begin{proof}
+    这里给出定理的证明过程。证明过程应逻辑严谨，步骤清晰。
+\end{proof}
+
+\section{算法描述}
+
+使用 \texttt{algorithm2e} 宏包描述算法，如算法\ref{alg:example}所示。
+
+\begin{algorithm}[H]
+    \caption{示例算法}
+    \label{alg:example}
+    \KwIn{输入数据 $\mathcal{D}$，学习率 $\eta$，迭代次数 $T$}
+    \KwOut{模型参数 $\theta$}
+    初始化参数 $\theta_0$\;
+    \For{$t = 1, 2, \ldots, T$}{
+        计算梯度 $g_t = \nabla_\theta \mathcal{L}(\theta_{t-1}; \mathcal{D})$\;
+        更新参数 $\theta_t = \theta_{t-1} - \eta \cdot g_t$\;
+        \If{收敛条件满足}{
+            \textbf{break}\;
+        }
+    }
+    \Return{$\theta_T$}
+\end{algorithm}
+
+\section{代码示例}
+
+程序代码使用等宽字体，并配有行号，如代码\ref{lst:example}所示。
+
+\begin{lstlisting}[language=Python, caption={Python 代码示例}, label={lst:example}]
+import numpy as np
+
+def softmax(x):
+    """计算 softmax 函数"""
+    e_x = np.exp(x - np.max(x))
+    return e_x / e_x.sum(axis=0)
+
+# 示例调用
+logits = np.array([2.0, 1.0, 0.5])
+probs = softmax(logits)
+print(probs)
+\end{lstlisting}
+
+\section{本章小结}
+
+每章末尾应有小结，对本章研究工作进行概括性总结，并说明所取得的主要成果。同时可指出本章工作的局限性，为下文进一步研究做铺垫。

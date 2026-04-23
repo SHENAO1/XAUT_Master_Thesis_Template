@@ -1,0 +1,93 @@
+% !Mode:: "TeX:UTF-8"
+%% 请使用 XeLaTeX 编译本文.
+%本模板在武汉大学硕士学位论文模板以及内蒙古科技大学硕士学位论文基础基础上修改，感谢原作者的工作！http://aff.whu.edu.cn/huangzh/ (武汉大学) and richey@imust.edu.cn (内蒙古科技大学)
+%本模版联系方式wangxin2168@163.com
+\documentclass[forprint]{XAUTPhD}   % 选项 
+\addbibresource[location=local]{XAUTPhD.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\CTitle{西安理工大学博士学位论文模板}     %论文题目中文名
+\CTitleFirstLine{~ 西安理工大学博士学位论文 ~}   %论文题目中文名分行一行
+\CTitleSecondLine{~ 模板模板 ~}                  %论文题目中文名分行二行
+
+\StudentAuthor{王鑫}                %姓名
+\StudentNumber{1220000000}          %学号
+\Csupervisor{刘龙}                  %指导教师中文名
+\CsupervisorTitle{教授}             %指导教师职称
+\Cmajor{控制科学与工程}              % 学科（领域）名称
+\CSchool{自动化与信息工程学院}        %学院
+\CUniversity{西安理工大学}           %学校
+\ClassficationNumber{ TP182  }     %分类号
+\SecretLevel{~~~公开~~~}            %密级
+\UDC{\quad\quad\quad ~}            %UDC
+\UniversityCode{10700}             %学校代码
+\DegreeCategory{工学}               %学位类别
+\AssistSupervistor{赵建敏}          %协助指导教师
+\AssistSupervistorTitle{副教授}     %协助指导教师职称
+\PaperDate{2020年6月10日}           %目前为自动获取当日日期，若需手动可设置此参数
+
+\ETitle{XI'AN UNIVERSITY OF TECHNOLOGY DOCTORAL DISSERTATION TEMPLATE}     
+                                              %论文题目英文名
+\Emajor{Control Science and Engineering}      % 学科英文名称
+\EStudentAuthor{Xin Wang}                     % 英文名
+\Esupervisor{Long Liu}                        %指导教师英文名
+\EsupervisorTitle{Prof.}                      %指导教师英文职称
+
+%%%============= 封面 ============%%%-------------------------------------------
+\pdfbookmark[0]{封面}{title}         % 封面页加到 pdf 书签
+\pagenumbering{gobble} 
+\input{parts/coverpage}             % 加入封面.
+
+%%%=========== 独创性声明 =========%%%-------------------------------------------
+\input{parts/originalitystate}      % 加入独创性声明.
+
+%%%=========== 中英文摘要 =========%%%-------------------------------------------
+\pagenumbering{Roman}               % 正文之前的页码用大写罗马字母编号.
+\pagestyle{frontplain}
+\input{parts/abstract}              % 加入中英文摘要
+
+%%%============= 目录 ============%%%-------------------------------------------
+\pdfbookmark[0]{目录}{toc}          % 把目录加入到书签
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage \pagestyle{fancyfancyfancy} \fancyfancy
+\mainmatter %% 以下是正文
+\baselineskip=20pt  % 正文行距为 20 磅
+
+%%%============= 正文 ============%%%-------------------------------------------
+\include{chapters/cha.1_绪论}
+\include{chapters/cha.2_视觉文本描述基础}
+\include{chapters/cha.3_基于度量学习的姿态估计}
+\include{chapters/cha.4_人体姿态估计系统}
+\include{chapters/cha.5_总结与展望}
+\include{chapters/cha.6_模板使用方法}
+
+%%%============= 致谢 ============%%%-------------------------------------------
+\include{parts/acknowledgment}
+
+%%%=========== 参考文献 ===========%%%-------------------------------------------
+\cleardoublepage\phantomsection
+\titleformat{\chapter}{\centering\heiti\bfseries\zihao{3}}{}{1em}{}
+\titlespacing{\chapter}{0pt}{-1em}{1em}
+\addcontentsline{toc}{chapter}{参考文献}
+\markboth{参考文献}{参考文献}
+\chapter*{参考文献}
+\setlength{\bibitemsep}{0pt}%
+% \setlength{\bibparsep}{0pt}%
+\printbibliography[heading=none,title={参考文献}]
+% \myprintbibliography{参考文献}
+
+%%%============= 附录 ============%%%-------------------------------------------
+\include{parts/appendix}
+
+%%%=========== 研究成果 ===========%%%-------------------------------------------
+\include{parts/achievement}
+
+\cleardoublepage
+\end{document}
+
+
+

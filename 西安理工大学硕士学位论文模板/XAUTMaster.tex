@@ -1,0 +1,93 @@
+% !Mode:: "TeX:UTF-8"
+%% 请使用 XeLaTeX 编译本文.
+%% 西安理工大学硕士学位论文模板（学术型硕士）
+%% 基于 XAUTPhD.cls 修改，格式遵循《西安理工大学研究生学位论文撰写规范》
+\documentclass[forprint]{XAUTMaster}   % 选项：forprint=隐藏彩色超链接（打印用）
+\addbibresource[location=local]{XAUTMaster.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%===========================================================
+%% 元数据填写区：请按照实际情况修改以下内容
+%%===========================================================
+
+%% ---- 中文信息 ----
+\CTitle{西安理工大学硕士学位论文模板}        %论文题目（完整）
+\CTitleFirstLine{~ 西安理工大学硕士学位论文 ~}   %论文题目第一行（封面显示）
+\CTitleSecondLine{~ 模板示例 ~}               %论文题目第二行（封面显示，无第二行可留空）
+
+\StudentAuthor{张三}                    %姓名
+\StudentNumber{2220000000}              %学号
+\Csupervisor{李四}                      %指导教师中文名
+\CsupervisorTitle{教授}                 %指导教师职称
+\Cmajor{控制科学与工程}                  %学科（领域）名称
+\CSchool{自动化与信息工程学院}            %所在学院
+\CUniversity{西安理工大学}               %学校
+\ClassficationNumber{ TP182  }         %分类号（可在图书馆《中国图书分类法》中查阅）
+\SecretLevel{~~~公开~~~}                %密级
+\UDC{\quad\quad\quad ~}                %UDC
+\UniversityCode{10700}                 %学校代码（西安理工大学固定为10700）
+\DegreeCategory{工学}                   %学位类别（如：工学、理学、管理学等）
+\AssistSupervistor{}                    %协助指导教师（无则留空）
+\AssistSupervistorTitle{}               %协助指导教师职称（无则留空）
+
+%% ---- 英文信息 ----
+\ETitle{MASTER'S DISSERTATION TEMPLATE OF XI'AN UNIVERSITY OF TECHNOLOGY}
+                                        %论文题目英文名（全部大写）
+\Emajor{Control Science and Engineering}   %学科英文名称
+\EStudentAuthor{San Zhang}              %英文姓名
+\Esupervisor{Si Li}                     %指导教师英文名
+\EsupervisorTitle{Prof.}               %指导教师英文职称
+
+%%===========================================================
+%% 正文结构
+%%===========================================================
+
+%%%============= 封面 ============%%%
+\pdfbookmark[0]{封面}{title}
+\pagenumbering{gobble} 
+\input{parts/coverpage}
+
+%%%=========== 独创性声明 =========%%%
+\input{parts/originalitystate}
+
+%%%=========== 中英文摘要 =========%%%
+\pagenumbering{Roman}               % 前置部分用大写罗马数字编页码
+\pagestyle{frontplain}
+\input{parts/abstract}
+
+%%%============= 目录 ============%%%
+\pdfbookmark[0]{目录}{toc}
+\tableofcontents
+
+%%%============= 正文 ============%%%
+\newpage \pagestyle{fancyfancyfancy} \fancyfancy
+\mainmatter
+\baselineskip=20pt  % 正文行距20磅
+
+\include{chapters/cha.1_绪论}
+\include{chapters/cha.2_主体内容}
+\include{chapters/cha.last_总结与展望}
+
+%%%============= 致谢 ============%%%
+\include{parts/acknowledgment}
+
+%%%=========== 参考文献 ===========%%%
+\cleardoublepage\phantomsection
+\titleformat{\chapter}{\centering\heiti\bfseries\zihao{3}}{}{1em}{}
+\titlespacing{\chapter}{0pt}{-1em}{1em}
+\addcontentsline{toc}{chapter}{参考文献}
+\markboth{参考文献}{参考文献}
+\chapter*{参考文献}
+\setlength{\bibitemsep}{0pt}%
+\printbibliography[heading=none,title={参考文献}]
+
+%%%============= 附录（必要时）============%%%
+% \include{parts/appendix}
+
+%%%=========== 研究成果 ===========%%%
+\include{parts/achievement}
+
+\cleardoublepage
+\end{document}

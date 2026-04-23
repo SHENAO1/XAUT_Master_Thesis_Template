@@ -1,0 +1,80 @@
+% !Mode:: "TeX:UTF-8"
+%% 请使用 XeLaTeX 编译本文（推荐编译顺序：xelatex → biber → xelatex → xelatex）
+%%
+%% 西安理工大学结课设计报告模板
+%% 基于 XAUTPhD 博士学位论文模板改造
+%%
+\documentclass{XAUTReport}
+\addbibresource[location=local]{XAUTReport.bib}
+
+%% ============================================================
+%% 【封面信息填写区】
+%% 在此处统一填写所有封面字段，无需修改其他文件
+%% ============================================================
+\ReportTitle{报告题目（请在此处修改）}   % 报告题目
+\CourseName{课程名称}                    % 课程名称
+\StudentName{姓名}                       % 学生姓名
+\StudentID{学号}                         % 学号
+\Major{专业名称}                         % 专业
+\ClassName{班级}                         % 班级
+\CSchool{所在学院}                       % 学院
+\Instructor{指导教师姓名}                % 指导教师
+\InstructorTitle{教授}                   % 指导教师职称（如不需要可置空）
+\ReportDate{\today}                      % 提交日期（默认今日，可改为固定日期如：2026年6月15日）
+\CUniversity{西安理工大学}               % 学校名称（页眉使用）
+
+\begin{document}
+
+%%%============= 封面 ============%%%
+\pagenumbering{gobble}                   % 封面不显示页码
+\input{parts/coverpage}
+
+%%%============= 中文摘要 ============%%%
+\pagenumbering{Roman}                    % 前置页码用大写罗马数字
+\pagestyle{frontplain}
+\input{parts/abstract}
+
+%%%============= 英文摘要 ============%%%
+%% 提示：可将下面这行移动到文档其他位置以调整英文摘要的位置
+%% 例如移至参考文献之前，或注释掉以去除英文摘要
+\input{parts/abstract_en}
+
+%%%============= 目录 ============%%%
+\pdfbookmark[0]{目录}{toc}
+\tableofcontents
+
+%% ============================================================
+%% 正文开始
+%% ============================================================
+\newpage
+\pagestyle{reportmain}
+\reportpagestyle
+\mainmatter
+\baselineskip=20pt                       % 正文行距 20 磅
+
+%%%============= 正文章节 ============%%%
+%% 按需添加/删除章节，文件名可自定义
+\include{chapters/cha.1_绪论}
+\include{chapters/cha.2_主体内容}
+%\include{chapters/cha.3_xxx}            % 注释掉即禁用该章
+
+%%%============= 结论 ============%%%
+\include{chapters/cha.last_结论}
+
+%%%============= 参考文献 ============%%%
+\cleardoublepage\phantomsection
+\titleformat{\chapter}{\centering\heiti\bfseries\zihao{3}}{}{1em}{}
+\titlespacing{\chapter}{0pt}{-1em}{1em}
+\addcontentsline{toc}{chapter}{参考文献}
+\markboth{参考文献}{参考文献}
+\chapter*{参考文献}
+\printbibliography[heading=none]
+
+%%%============= 附录（按需启用）============%%%
+%% 去掉注释符 % 即可启用附录
+%\begin{appendices}
+%  \chapter{附录标题}
+%  附录内容……
+%\end{appendices}
+
+\end{document}

@@ -1,0 +1,78 @@
+% !Mode:: "TeX:UTF-8"
+% pages/coverpage.tex
+%%%--- “封面” --- %%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}%
+
+% 书脊
+\printCoverBox{0.8cm}{-3.8cm}{2.05cm}{-26.8cm}{0.25mm}
+
+\begin{textblock}{1}[0,0](0.2, 3)
+    \zihao{4}\songti
+    \begin{minipage}[t][24.3cm][c]{0.5em} %\textheight
+        \printSpine
+    \end{minipage}
+\end{textblock}
+
+% 特殊信息
+\begin{textblock}{6}(12.75,3.45) % 宽度Zcm，位置(Xcm,Ycm)
+    \zihao{-4}\songti
+    \renewcommand{\arraystretch}{0.85}
+    \begin{tabular}{|p{1.8cm}|p{2.45cm}|}
+        \hline
+        \makebox[1.8cm][s]{分类号}    & \the\ClassficationNumber \\
+        \hline
+        \makebox[1.8cm][s]{学校代码}  & \the\UniversityCode \\
+        \hline
+        \makebox[1.8cm][s]{学号}     & \the\StudentNumber \\
+        \hline
+    \end{tabular}
+\end{textblock}
+
+\begin{center}
+    \vspace{170pt}
+    \includegraphics[width=8.53cm,height=1.53cm]{xaut01.png} %%
+    \vspace{23pt}
+    
+    {\heiti\fontsize{48pt}{48pt}\bfseries{
+    博士学位论文
+    }}
+    
+    \vspace{50pt}
+    % \hspace{44pt}
+    {\zihao{-3}\songti
+        \renewcommand\arraystretch{1.2}
+        % \hspace{4cm}
+        \begin{tabular}{c}
+            \songti\zihao{3}\bfseries{\thickuline{\makebox[18em]{\the\CTitleFirstLine}}} \\
+            \songti\zihao{3}\bfseries{\thickuline{\makebox[18em]{\the\CTitleSecondLine}}} \\
+        \end{tabular}\\
+    }
+    {\zihao{-3}\songti
+    \vspace{2\baselineskip}
+    }
+
+    {
+    \songti\zihao{-3}\bfseries{\thickuline{~~\the\StudentAuthor ~~~}}
+    }
+    
+    \vspace{65pt}
+    % \hspace{44pt}
+    {\zihao{-3}\songti
+        \renewcommand\arraystretch{1.35}
+        %\hspace{1.4cm}
+        \begin{tabular}{lccc}
+            \makebox[6em][s]{\textbf{学科门类:}} & \multicolumn{3}{c}{\thickuline{\makebox[12.5em]{\textbf{\the\DegreeCategory}}}} \\
+            \makebox[6em][s]{\textbf{学科名称:}}
+            & \multicolumn{3}{c}{\thickuline{\makebox[12.5em]{\textbf{\the\Cmajor}}}} \\
+            \makebox[6em][s]{\textbf{所在学院:}}
+            & \multicolumn{3}{c}{\thickuline{\makebox[12.5em]{\textbf{\the\CSchool}}}} \\
+            \makebox[6em][s]{\textbf{指导教师:}}
+            & \multicolumn{3}{c}{\thickuline{\makebox[12.5em]{\textbf{\the\Csupervisor~~\the\CsupervisorTitle}}}} \\
+            \makebox[6em][s]{\textbf{申请日期:}}
+            & \multicolumn{3}{c}{\thickuline{\makebox[12.5em]{\textbf{\today}}}} \\
+        \end{tabular}		
+    }
+\end{center}%
+
+\cleardoublepage

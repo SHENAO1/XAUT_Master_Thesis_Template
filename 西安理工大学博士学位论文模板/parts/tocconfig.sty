@@ -1,0 +1,53 @@
+% tocconfig.sty
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tocconfig}[2025/10/11 Custom table of contents style]
+
+% 加载必要的宏包
+\RequirePackage{tocloft}
+
+% 目录标题格式设置
+% \renewcommand\cfttoctitlefont{\centering\zihao{3}\heiti\bfseries}
+\renewcommand\contentsname{目\quad 录}
+\renewcommand\cfttoctitlefont{\hfill\heiti\bfseries\zihao{3}}
+\renewcommand\cftaftertoctitle{\hfill}
+
+% 目录标题间距调整
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{20pt} 
+\setlength{\cftbeforechapskip}{0pt}
+\cftsetpnumwidth{1.5em}
+
+% 目录条目格式
+\renewcommand\cftchapfont{\songti\zihao{-4}}
+\renewcommand\cftsecfont{\songti\zihao{-4}}
+\renewcommand\cftsubsecfont{\songti\zihao{-4}}
+% \renewcommand\cftsubsubsecfont{\songti\zihao{-4}}
+
+% 目录条目间距
+% \setlength{\cftbeforesecskip}{8pt}
+% \setlength{\cftbeforesubsecskip}{6pt}
+% \setlength{\cftbeforesubsubsecskip}{4pt}
+\setlength{\cftparskip}{1pt}
+
+% 目录缩进设置
+% \setlength{\cftsecindent}{0em}
+% \setlength{\cftsubsecindent}{3em}
+% \setlength{\cftsubsubsecindent}{6em}
+\cftsetindents{chapter}{0em}{1em}
+\cftsetindents{section}{2em}{1em}
+\cftsetindents{subsection}{4em}{1em}
+
+% 目录点状引导线设置
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\makeatletter
+\renewcommand{\cftdot}{$\cdot$}
+\renewcommand{\cftdotsep}{0.5}
+
+\renewcommand{\cftpnumalign}{r}
+\renewcommand\cftchappagefont{}  %chapter页码设置
+\renewcommand\cftchapaftersnum{~} %chapter编号到文字距离 ~
+\renewcommand\cftsecaftersnum{~} %section编号到文字距离 ~
+
+\makeatother
+
+\endinput

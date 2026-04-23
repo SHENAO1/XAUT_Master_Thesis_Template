@@ -1,0 +1,91 @@
+% !Mode:: "TeX:UTF-8"
+% chapters/cha.2_主体内容.tex — 第2章示例：主体内容（含图、表、公式示例）
+
+\chapter{主体内容示例}
+
+\section{公式示例}
+
+行内公式：设损失函数为 $\mathcal{L} = \frac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2$。
+
+行间公式如式~(\ref{eq:loss}) 所示：
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{N}\sum_{i=1}^{N}\left(y_i - \hat{y}_i\right)^2
+    \label{eq:loss}
+\end{equation}
+
+其中，$N$ 为样本数量，$y_i$ 为真实值，$\hat{y}_i$ 为预测值。
+
+\section{图片示例}
+
+图~\ref{fig:example} 展示了……
+
+\begin{figure}[htbp]
+    \centering
+    % 替换为实际图片路径（相对于 figures/ 目录）
+    % \includegraphics[width=0.6\textwidth]{example.pdf}
+    \fbox{\parbox{0.5\textwidth}{\centering\vspace{2cm}图片占位符\vspace{2cm}}}
+    \caption{示例图片标题}
+    \label{fig:example}
+\end{figure}
+
+若需要中英文双语标题，可使用 \verb|\bilingualfigure| 命令：
+
+\begin{figure}[htbp]
+    % \includegraphics[width=0.5\textwidth]{example.pdf}
+    \fbox{\parbox{0.5\textwidth}{\centering\vspace{1.5cm}双语图片占位符\vspace{1.5cm}}}
+    \bilingualfigure{双语图标题（中文）}{Bilingual Figure Caption (English)}
+    \label{fig:bilingual}
+\end{figure}
+
+\section{表格示例}
+
+表~\ref{tab:example} 给出了……
+
+\begin{table}[htbp]
+    \centering
+    \caption{示例三线表}
+    \label{tab:example}
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{方法} & \textbf{精度 (\%)} & \textbf{召回率 (\%)} & \textbf{F1 值} \\
+        \midrule
+        方法 A & 92.3 & 88.7 & 90.5 \\
+        方法 B & 94.1 & 91.2 & 92.6 \\
+        \textbf{本方法} & \textbf{95.8} & \textbf{93.4} & \textbf{94.6} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{算法示例}
+
+算法~\ref{alg:example} 描述了……
+
+\begin{algorithm}[htbp]
+    \caption{示例算法}
+    \label{alg:example}
+    \KwIn{输入数据 $\mathcal{D}$，迭代次数 $T$}
+    \KwOut{模型参数 $\theta$}
+    初始化参数 $\theta_0$\;
+    \For{$t = 1$ \KwTo $T$}{
+        计算梯度 $g_t \leftarrow \nabla_\theta \mathcal{L}(\theta_{t-1}; \mathcal{D})$\;
+        更新参数 $\theta_t \leftarrow \theta_{t-1} - \eta \cdot g_t$\;
+    }
+    \Return $\theta_T$\;
+\end{algorithm}
+
+\section{代码示例}
+
+\begin{lstlisting}[language=Python, caption={Python 代码示例}]
+import numpy as np
+
+def mean_squared_error(y_true, y_pred):
+    """均方误差损失函数"""
+    return np.mean((y_true - y_pred) ** 2)
+
+# 示例调用
+y_true = np.array([1.0, 2.0, 3.0])
+y_pred = np.array([1.1, 1.9, 3.2])
+loss = mean_squared_error(y_true, y_pred)
+print(f"MSE Loss: {loss:.4f}")
+\end{lstlisting}

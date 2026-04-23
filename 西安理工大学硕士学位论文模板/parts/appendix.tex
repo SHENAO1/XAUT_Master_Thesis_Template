@@ -1,0 +1,30 @@
+% !Mode:: "TeX:UTF-8"
+% parts/appendix.tex
+%%%--- "附录" --- %%%%%%%%%%%%%%%%%
+
+\cleardoublepage\phantomsection
+\titleformat{\chapter}{\centering\heiti\bfseries\zihao{3}}{附录\thechapter}{1em}{}
+\titlespacing{\chapter}{0pt}{-1em}{1em}
+
+\renewcommand{\thechapter}{\arabic{chapter}} % 改为阿拉伯数字
+\newcommand{\appendixnumbering}{%
+  \renewcommand{\thechapter}{\arabic{chapter}}% 强制附录使用 1,2,3...
+  \setcounter{chapter}{0}% 从 1 开始编号
+}
+\renewcommand{\chaptermark}[1]{%
+  \markboth{附录~\thechapter\quad #1}{}%
+}
+
+\makeatletter
+\patchcmd{\appendix}{\setcounter{chapter}{0}}{\appendixnumbering}{}{}
+\makeatother
+
+\appendix
+\appendixnumbering
+\addcontentsline{toc}{chapter}{附录1}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}} % 临时禁止加入目录
+\chapter{}
+
+这里填写附录1的内容，如推导过程、辅助数据表格、计算程序等。
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}} % 恢复目录深度

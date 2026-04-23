@@ -1,0 +1,338 @@
+% !Mode:: "TeX:UTF-8"
+
+\chapter{模板的使用方法}
+
+\section{Readme}
+本模版为非官方模板，全文参考《西安理工大学研究生学位论文撰写规范》\cite{r6-1}完成。
+西安理工大学博士学位论文一般应由十一个主要部分组成，依次为：1.封面；2.学位论文原创性声明和版权使用授权书；3.中文摘要；4.英文摘要；5.目录；6.符号说明（本模版未包含）；7.论文正文（一般自绪论始，至结论止）；8. 致谢；9.参考文献；10.附录；11.攻读博（硕）士学位期间主要研究成果。（注意：第7-11项，编入目录）。基于此，本模板文件结构如下表所示:
+
+\begin{table}[h]\centering
+    \begin{tabularx}{\textwidth}{l|r|l}\hline\hline
+        XAUTPhD.tex   & \multicolumn{2}{l}{主文档：组织完整论文结构}\\\hline
+        XAUTPhD.cls   & \multicolumn{2}{l}{类文件：加入所需宏包，定义页眉页脚、页边距等文档格式}\\\hline
+        XAUTPhD.bib   & \multicolumn{2}{l}{参考文献条目文件}\\\hline
+        pages文件夹    & coverpage.tex         & 封面       \\
+                      & originalitystate.tex  & 学位论文原创性声明和版权使用授权书  \\
+                      & abstract.tex          & 中英文摘要  \\
+                      & tocconfig.sty         & 目录配置文件\\
+                      & acknowledgment.tex    & 致谢       \\
+                      & appendix.tex          & 附录       \\
+                      & achievement.tex       & 攻读博士学位期间主要研究成果    \\\hline
+        chapter文件夹  & cha.X\_XXXX.tex       & 正文章节    \\\hline  
+        figures文件夹  & \multicolumn{2}{l}{存放图片文件.}\\\hline
+        \multicolumn{2}{l|}{gb7714-2015.bbx / gb7714-2015.cbx} &  gb7714-2015参考文献生成. 不可删除.\\ \hline 
+        \multicolumn{2}{l|}{simhei.ttf / simsun.ttc文件}     &  中文字体，不可删除.\\ \hline \hline
+        \multicolumn{3}{l}{注：非必要不更改.cls/.sty/.bbx/.cbx, 其余文件或文件夹可自行更改。}\\
+\end{tabularx}
+\end{table}
+
+学生个人信息和论文信息，如姓名、学号、班级、指导老师、论文题目等，在主文档XAUTPhD.tex中编辑。其余组成部分分别在对应文件中编辑。
+
+\section{编译的方法}\label{sec-compile}
+
+默认使用 XeLaTeX 编译, 直接生成~pdf 文件.
+
+若另存为新文档, 请确保文档保存类型为 \verb|:UTF-8|. 当然目前很多编辑器默认文字编码为 UTF-8.
+WinEdt 9.0 之后的版本都是默认保存为 UTF-8 的.
+
+\section{字体调节}
+
+\begin{tabular}{ll}
+ \verb|\songti| & {\songti 宋体} \\
+ \verb|\heiti| & {\heiti 黑体} \\
+ \verb|\fangsong| & {\fangsong 仿宋} \\
+ \verb|\kaishu| & {\kaishu 楷书} \\
+\end{tabular}
+
+\section{字号调节}
+字号命令: \verb|\zihao|
+
+\begin{tabular}{lcl}
+\verb|\zihao{0}| & 42pt   &\zihao{0}  初号字 English \\
+\verb|\zihao{-0}|& 36pt   &\zihao{-0} 小初号 English \\
+\verb|\zihao{1} |& 26pt   &\zihao{1}  一号字 English \\
+\verb|\zihao{-1}|& 24pt   &\zihao{-1} 小一号 English \\
+\verb|\zihao{2} |& 22pt   &\zihao{2}  二号字 English \\
+\verb|\zihao{-2}|& 18pt   &\zihao{-2} 小二号 English \\
+\verb|\zihao{3} |& 16pt   &\zihao{3}  三号字 English \\
+\verb|\zihao{-3}|& 15pt   &\zihao{-3} 小三号 English  \\
+\verb|\zihao{4} |& 14pt   &\zihao{4}  四号字 English  \\
+\verb|\zihao{-4}|& 12pt   &\zihao{-4} 小四号 English \\
+\verb|\zihao{5} |& 10.5pt &\zihao{5}  五号字 English \\
+\verb|\zihao{-5}|& 9pt    &\zihao{-5} 小五号 English \\
+\verb|\zihao{6} |& 7.5pt  &\zihao{6}  六号字 English \\
+\verb|\zihao{-6}|& 6.5pt  &\zihao{-6} 小六号 English \\
+\verb|\zihao{7} |& 5.5pt  &\zihao{7}  七号字 English \\
+\verb|\zihao{8} |& 5pt    &\zihao{8}  八号字 English \\
+\end{tabular}
+
+\section{列表演示}
+
+第一种：数字.
+
+\begin{enumerate}[itemindent=2em]
+	\item 列表项1。
+	\item 列表项2。
+	\item 列表项3。 
+\end{enumerate}
+
+第二种：(数字)
+
+\begin{enumerate}[itemindent=2em,label=(\arabic*)]	
+	\item 列表项1。
+	\item 列表项2。
+	\item 列表项3。 
+\end{enumerate}
+
+第三种：(罗马顺序)
+
+\begin{enumerate}[itemindent=2em,label=(\roman*)]	
+	\item 列表项1。
+	\item 列表项2。
+	\item 列表项3。 
+\end{enumerate}
+
+第三种：(英文字母顺序)
+
+\begin{enumerate}[itemindent=2em,label=(\alph*)]	
+	\item 列表项1。
+	\item 列表项2。
+	\item 列表项3。
+\end{enumerate}
+
+\section{已加入的常用宏包}
+
+\begin{description}
+%  \item[amsmath,amssymb]
+  \item[cite]  参考文献引用, 得到形如 [3-7] 的样式.
+  \item[color,xcolor]  支持彩色.
+  \item[enumerate]  方便自由选择 enumerate 环境的编号方式. 比如
+
+  \verb|\begin{enumerate}[(a)]| 得到形如 (a), (b), (c) 的编号.
+
+  \verb|\begin{enumerate}[i)]| 得到形如 i), ii), iii) 的编号.
+
+\end{description}
+
+另外要说明的是, itemize, enumerate, description 这三种 list 环境, 已经调节了其间距和缩进\cite{yukai,Ngiam2011Multimodal}, 
+以符合中文书写的习惯\cite{方军雄2007所有制}.
+
+\section{中英文间距问题}
+
+自动加入间距。不再需要在公式、英文前后加字符``\verb|~|''或空格。此外，根据《西安理工大学研究生学位论文撰写规范》\cite{r6-1}(后续简称规范)，已设置正文、标题、参考文献等内容行间距为固定20pt。特殊情况请自行设置。
+
+\section{参考文献及其引用}
+
+参考文献的引用, 用命令~\verb|\cite{ }|. 大括号内要填入的字串, 是自命名的文献条目名.
+
+比如, 通常我们会说:
+
+{
+关于此问题, 请参见文献 \cite{r2,r10,r11,r22}. 作者某某还提到了某某概念\cite{r1}.}
+
+{
+关于此问题, 请参见文献~\verb|\cite{r6}|.
+}
+
+
+另外, 要得到形如~\cite{r8,r1,r3,r4,r5} 的参考文献连续引用, 需要用到 cite 宏包(模板已经加入),
+在正文中使用~\verb|\cite{r8,r1,r3,r4,r5}| 的引用形式即可.
+
+引用效果\cite{r1,r3,r4,r5}。
+
+引用效果\cite{Alejandro2020Automatic,Han2020Full,Hung2020Automated,Hyun2020Defect,Ritu2020Prevalence,Sankaranarayanan2020Gradient,Sukhdeep2020A,Yukiko2020Robust,Yi2020Intensity,Weiguo2020A,Sukhdeep2020A,Sankaranarayanan2020Gradient,Ritu2020Prevalence}。
+
+引用效果\cite{r6,r7}。
+
+引用效果\cite{r9}。
+
+\section{图、表以及公式的格式要求}
+
+图、表、公式等一律用阿拉伯数字分章连续编号，如 图1-3、表2-1、（3-2）等。图应有图题，表应有表题，并分别置于图号和表号之后，图号及图题应置于图下方的居中位置，表号和表题应置于表上方的居中位置。引用图或表应在图题或表题右上角标出文献来源。
+
+\subsection{图及其引用}
+
+\LaTeX{}支持eps、pdf、png、jpg等几种常见图形格式。如图 \ref{fig:1} 是一个纳入~jpg 图片的例子\cite{10.1145/3289402.3289538,10.5555/2936924.2936926}。注意textwidth为页面宽度，可以通过调整缩放比例改变图片大小。
+
+\begin{figure}[ht]
+\centering
+  \includegraphics[width=\textwidth]{Daisy.jpg}
+  \bilingualfigure{这是一个示例图的标题}{This is an example figure caption}
+  \label{fig:1}
+\end{figure}
+
+这是一个左右图片的并排例子，如图\ref{fig:3}(a)和(b)所示。
+
+% \begin{figure}[ht]   
+% 	\begin{minipage}[t]{0.5\linewidth} % 如果一行放2个图，用0.5，如果3个图，用0.33  
+% 		\centering   
+% 		\includegraphics[width=2.5in]{fig04.png}
+% 		\caption*{TLC549八位AD转换芯片}   		
+% 	\end{minipage}%   
+% 	\begin{minipage}[t]{0.5\linewidth}   
+% 		\centering   
+% 		\includegraphics[width=2.5in]{fig05.png} 
+% 		\caption*{TLC549AD转换电路原理图}  		
+% 	\end{minipage}
+% 	\bilingualfigure{TLC549芯片及AD转换电路原理图}{TLC549 Chip and AD Conversion Circuit Schematic Diagram}
+%     \label{fig:2}
+% \end{figure} 
+
+\begin{figure}[htbp]
+    \centering
+    % 第一个子图
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+          \includegraphics[width=\linewidth]{fig04.png} % 替换为你的第一个图片
+        \caption{TLC549八位AD转换芯片(附注)} % 空标题，只显示(a)
+    \end{subfigure}
+    \hfill % 填充两个子图之间的空间
+    % 第二个子图
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{fig05.png} % 替换为你的第二个图片
+        \caption{(无附注)} % 空标题，只显示(b)
+    \end{subfigure}
+% 总图标题
+\bilingualfigure{TLC549芯片及AD转换电路原理图}{TLC549 Chip and AD Conversion Circuit Schematic Diagram}
+\label{fig:3}
+\end{figure}
+
+根据规范，关于插图须紧跟文述。在正文中，一般应先见图号及图的内容后再见图，一般情况下不能提前见图，特殊情况须延后的插图不应跨节；图中用字为五号，如排列过密，用五号字有困难时，可小于五号字，但不得小于七号字。
+
+\subsection{表格及其引用}
+
+这是一个表格的示例，TLC549的管脚功能定义如表~\ref{TCL549芯片管脚定义表}~所示。
+
+\begin{table}[H]
+    \centering
+    \bilingualtable{TCL549芯片管脚定义}{TCL549 Chip Pin Definitions}%调整parbox参数使标题左对齐
+    \label{TCL549芯片管脚定义表}
+    \begin{tabularx}{\textwidth}{c l } % l：左对齐,c:居中对齐,r:右对齐
+        \toprule
+        管脚名称 & 描述   \\
+        \midrule
+        REF+ & 正基准电压输入,2.5V$\le$REF+$\le$Vcc+0.1。\\
+        REF－ & 负基准电压输入端，-0.1V$\le$REF-$\le$2.5V。\\
+        VCC & 系统电源3V$\le$Vcc$\le$6V。\\
+        GND & 接地端。\\
+        /CS &芯片选择输入端。\\
+        DATA OUT & 转换结果数据串行输出端，高位在前，低位在后。\\
+        ANALOG IN &模拟信号输入端，0$\le$ANALOGIN$\le$Vcc。\\
+        I/O CLOCK &输入/输出时钟输入端，同于同步芯片的输入输出操作。\\
+        \bottomrule				
+    \end{tabularx}
+\end{table}
+
+根据规范，表格的设计应紧跟文述。表的编排一般是内容和测试项目由左至右横读，数据依序竖读，应有自明性；若为大表或作为工具使用的表格，可作为附表在附录中给出，论文中的表格参数应标明量和单位的符号；一律使用三线表，与文字齐宽，边框线粗2.25磅，辅助线粗1磅；表中用字为五号字体。如排列过密，用五号字有困难时，可小于五号字，但不小于七号；表格必须通栏，即表格宽度与正文版面平齐。
+
+\subsection{公式及其引用}
+
+这是公式\eqref{eq-12}的引用示例！
+
+\begin{flalign}\label{eq-12}
+\hspace{2em}
+\dfrac{\partial c_i}{\partial t}&=-\nabla \cdot J_i \upsilon_i r&
+\end{flalign}
+
+单独的公式示例：
+
+\begin{flalign}\label{eq-02}
+   \hspace{2em}
+   \sum_{i=1}^n a_i & =0 &
+\end{flalign}
+\begin{flalign}\label{eq-03}
+    \hspace{2em}
+	f(x_1,x_2,\ldots,x_n) &= x_1^2 + x_2^2 + \cdots + x_n^2 &
+\end{flalign}
+
+\begin{flalign}\label{eq-04}
+    \hspace{2em}
+	&\sum^{j-1}_{k=0}{\widehat{\gamma}_{kj} z_k} &
+\end{flalign}
+
+在规范中，公式应左起空两个字编排。但经过调研发现大多数博士论文中的公式偏向居中编排，因此我们提供居中编排公式示例。这是公式\eqref{eq-05}的引用示例！
+
+\begin{equation}\label{eq-05}
+\int_a^b f(x)\,dx = F(b) - F(a)
+\end{equation}
+
+此外，根据规范，公式应另起一行，左起空两个字编排，较长的公式尽可能在等号后换行，或者在“+”、“-”等符号后换行。公式中分数线的横线，长短要分清，主要的横线应与等号取平；公式后应注明编号，公式号应置于小括号中，如公式(2-3)。写在右边行末，中间不加虚线。
+
+\section{关于论文中的算法和代码}
+\subsection{算法}
+
+描述算法采用“algorithm”环境实现，用来表达算法的伪代码。
+
+\begin{algorithm}[ht]
+    \renewcommand{\baselinestretch}{1.37}\selectfont
+    \SetKwInOut{Input}{\textbf{输入}}\SetKwInOut{Output}{\textbf{输出}} % 替换关键词
+    \caption{$k$-均值算法}
+    \Input {样本集$D=\{\boldsymbol{x}_1,\boldsymbol{x}_2,\dots,\boldsymbol{x}_m\}$、聚类簇数$k$.}
+    \Output {簇划分$\mathcal{C}=\{C_1,C_2,\dots,C_k\}$.}
+     从$D$中随机选择$k$个样本作为初始均值向量$\{\boldsymbol{\mu_1},\boldsymbol{\mu_2},\dots,\boldsymbol{\mu_k}\}$; \\
+    \Repeat{\songti{当前均值向量不再更新}}{
+     令$C_i=\varnothing\quad(1\le i\le k)$; \\
+    \For{$j=1,2,\dots,m$}{
+         计算样本$\boldsymbol{x}_j$与各均值向量$\boldsymbol{\mu}_i\quad(1\le i\le k)$的距离：$d_{ji}=||\boldsymbol{x}_j-\boldsymbol{\mu}_i||_2$ ;\\
+         根据距离最近的均值向量确定$\boldsymbol{x}_j$的簇标记：$\lambda_j=\mathop{\arg\min}_{i\in\{1,2,\dots,k\}}d_{ji}$ ;\\
+         将样本$\boldsymbol{x}_j$划入相应的簇：$C_{\lambda_j}=C_{\lambda_j}\cup\{\boldsymbol{x}_j\}$; 
+    }
+    \For{$i=1,2,\dots,k$}{
+         计算新均值向量：$\boldsymbol{\mu}_i'=\frac{1}{|C_i|}\sum_{\boldsymbol{x}\in C_i}^{}\boldsymbol{x}$; \\
+        \eIf{$\boldsymbol{\mu}_i'\neq\boldsymbol{\mu}_i$}{
+             将当前均值向量$\boldsymbol{\mu}_i$更新为$\boldsymbol{\mu}_i'$; }
+            {保持当前均值向量不变; }
+    }
+    }
+    \vspace*{-3pt}
+\end{algorithm}
+
+k均值算法是典型的原型聚类算法，它将聚类问题转化为最优化问题。具体做法是先找到 k 个聚类中心，并将所有样本分配给最近的聚类中心，分配的原则是让所有样本到其聚类中心的距离平方和最小。显然，距离平方和越小意味着每个聚类内样本的相似度越高。但是这个优化问题没有办法精确求解，因而只能搜索近似解。k 均值算法就是利用贪心策略，通过迭代优化来近似求解最小平方和的算法。
+
+\subsection{代码}
+\textbf{正文部分不宜放入大篇幅代码}，确需通过代码阐明内容的，建议每段代码不超过1页，大段代码可以放在附录中。代码采用“lstlisting”实现。注意代码的排版规范和缩进，由于“lstlisting”环境不能对代码自动排版，需要将排好版的代码填入“lstlisting”中，可以采用VSCODE的代码格式化插件实现代码的排版。
+
+C语言代码的示例如下：
+\begin{lstlisting}[language={[ANSI]C}]
+
+for (j = 0; j < 4; j++) {
+	dispBuf[3 - j] = uiAdValue % 10;
+	uiAdValue /= 10;
+}
+\end{lstlisting}
+
+python语言代码的示例如下：
+
+\begin{lstlisting}[language={python},extendedchars=false,tabsize=4, breaklines]
+#求解梯度
+def gradient(theta, X, y):
+    m = y.size
+    h = sigmoid(X.dot(theta.reshape(-1,1)))
+    grad =(1.0/m)*X.T.dot(h-y)
+    return(grad.flatten())
+initial_theta = np.zeros(X.shape[1])
+cost = costFunction(initial_theta, X, y)
+grad = gradient(initial_theta, X, y)
+res = minimize(costFunction, initial_theta, args=(X,y), jac=gradient, options={'maxiter':400})
+
+def predict(theta, X, threshold=0.5):
+    p = sigmoid(X.dot(theta.T)) >= threshold
+    return(p.astype('int'))
+    
+sigmoid(np.array([1, 45, 85]).dot(res.x.T))    
+\end{lstlisting}
+
+\section{参考文献}
+生成参考文献，建议使用BibTeX。使用BibTeX{}做参考文献时，借助EndNote或者NoteExpress, 可以非常漂亮简单地解决bib文件的录入问题。NoteExpress在校图书馆网站有正版软件提供下载。当然EndNote本身就是Thomson Corporation推出的(和SCI搜索引擎是同一家公司)，和多个重要文献搜索引擎有良好的功能配合。
+
+百度学术和Google学术搜索也提供了文献的bib格式，将其放入参考文献条目文件即可。录入参考文献时, 可以用其搜索并导出题录, 还可以核查或减少录入的错误, 并减少录入的工作量。
+
+\section{模板来源及联系方式}
+本模板在武汉大学黄正华老师所提供的《武汉大学学位论文模板》以及内蒙古科技大学李琦老师所提供的《内蒙古科技大学学位论文模板》基础上修改完成。衷心感谢黄正华老师(\url{http://aff.whu.edu.cn/huangzh/})和李琦老师(richey@imust.edu.cn)前期所做的卓越工作，使得本模板的设计与排版工作能够顺利进行。此外，感谢西安理工大学博士杜森和硕士陈振荣的学位论文以供本模版纠偏。珠玉在前，感谢前人的工作！
+
+本模板为非官方版本，全文参考《西安理工大学研究生学位论文撰写规范》完成，仅供学术参考和个人使用。使用本模板所产生的排版效果及其他后果与原学校及原作者无关。用户应根据实际要求自行检查与修改，以确保符合相关学位论文规范。
+
+{\heiti 本模板作者联系方式：}wangxin2168@163.com
+
+赠人玫瑰，手有余香！
